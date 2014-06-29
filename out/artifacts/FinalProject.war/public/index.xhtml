@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Smithflix</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet value="stylesheet.css"/>
+
+    <div align="right" style="">
+        <h:form id="loginFormId" prependId="false">
+            <div id="loginFieldsPnlId">
+                <div id="loginFieldUsrContId">
+                    <p:outputLabel id="outTxtUserNameId" value="Username: " name="outTxtUserNameNm"></p:outputLabel>
+                    <p:inputText id="userName" required="true" value="#{loginBean.userName}" requiredMessage="Please enter username"></p:inputText>
+                    <p:outputLabel id="outLblUserNameId" for="userName" name="outLblUserNameNm"></p:outputLabel>
+                </div>
+                <div id="loginFieldPassContId">
+                    <p:outputLabel id="outTxtPasswordId" value="Password: " name="outTxtPasswordNm"></p:outputLabel>
+                    <p:password id="password"  required="true" value="#{loginBean.password}" requiredMessage="Please enter password" name="inTxtPasswordNm"></p:password>
+                    <p:outputLabel id="outLblPasswordId" for="password" name="outLblPasswordNm"></p:outputLabel>
+                </div>
+            </div>
+            <div id="loginBtnPanelId">
+                <p:commandButton id="btnLoginId" value="Login" action="#{loginBean.doLogin}" styleClass="loginPanelBtn"></p:commandButton>
+                <p:commandButton id="btnCancelId" value="Cancel" action="#{loginBean.cancel}" styleClass="loginPanelBtn" immediate="true" update="loginFormId"></p:commandButton>
+            </div>
+        </h:form>
+    </div>
+    <div>
+        <h:messages></h:messages>
+    </div>
+</h:body>
+</html>

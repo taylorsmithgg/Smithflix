@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig.xsd">
+
+    <!--Enable Spring-->
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+    </application>
+
+    <!--Define navigation rule-->
+    <navigation-rule>
+        <from-view-id>/public/index.jsf</from-view-id>
+        <navigation-case>
+            <from-action>#{loginBean.doLogin}</from-action>
+            <from-outcome>correct</from-outcome>
+            <to-view-id>/secure/console.jsf</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{loginBean.doLogin}</from-action>
+            <from-outcome>incorrect</from-outcome>
+            <to-view-id>/public/nope.jsf</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>
